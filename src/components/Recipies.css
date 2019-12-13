@@ -1,0 +1,8 @@
+.recipies {
+	margin: 20px 0;
+}
+
+.recipies-header {
+  display: flex;
+  justify-content: space-between;	
+}
