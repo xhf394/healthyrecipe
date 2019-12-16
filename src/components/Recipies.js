@@ -6,7 +6,7 @@ import Recipe from './Recipe';
 const COLUMNS = { 
   category: {
   	label: 'Category',
-  	width: '30%',
+  	width: '20%',
   },
   image: {
   	label: 'Image',
@@ -19,20 +19,26 @@ const COLUMNS = {
   calorie: {
   	label: 'Calorie',
   	width: '20%'
+  },
+  archive: {
+    width: '10%'
   }
 }
 
 
-const Recipies = ({ recipies }) =>{
+const Recipies = ({ recipies, onArchive }) =>{
   
   return (
     <div className='recipies'>
       <RecipiesHeader columns={COLUMNS} />
+      
       {(recipies || []).map(recipe => (
         <Recipe 
           key={recipe.food.foodId}
           recipe={recipe}
-          columns={COLUMNS} 
+          columns={COLUMNS}
+          onArchive={onArchive}
+          id={recipe.food.foodId}
         />
       ))}
     </div>

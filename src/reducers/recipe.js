@@ -1,11 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './components/App';
-import store from './store';
-import * as serviceWorker from './serviceWorker';
 
-const recipies = [
+//*******************This is being updated****************//
+//this is the reducer to deal with 
+//1. updating state;
+//2. state transition
+//for recipies list.
+//*******************************************************//
+
+const INITIAL_STATE = [
   {
   	food: {
   	  foodId: "food_b0bnl8oayiqhs2at63ifxbm6i3o3",	
@@ -48,14 +49,15 @@ const recipies = [
       image: 'https://www.edamam.com/food-img/f1c/f1c7d3484954d91c3c84f56494d3c0ee.jpg',	
   	}	
   },
-]
+];
 
-ReactDOM.render(
-  <App recipies={store.getState()} onArchive={()=>{}}/>, 
-  document.getElementById('root')
-);
+function recipeReducer(state = INITIAL_STATE, action) {
+    switch(action.type) {    
+      //new state
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+      //default
+      default: return state;	
+    }
+}
+
+export default recipeReducer;
