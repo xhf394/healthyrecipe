@@ -1,8 +1,9 @@
 import { createStore } from 'redux';
-import recipeReducer from '../reducers/recipe';
+import rootReducer from '../reducers';
 
+//store only take one reducer;
 const store = createStore(
-  recipeReducer
+  rootReducer
 );
 
 export default store;

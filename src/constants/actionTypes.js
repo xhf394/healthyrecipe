@@ -1,0 +1,1 @@
+export const RECIPE_ARCHIVE = 'RECIPE_ARCHIVE';

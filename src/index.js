@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
 import store from './store';
+import { getReadableRecipies } from './selectors/recipe';
+import { RECIPE_ARCHIVE } from './constants/actionTypes';
 import * as serviceWorker from './serviceWorker';
 
 const recipies = [
@@ -50,10 +52,22 @@ const recipies = [
   },
 ]
 
-ReactDOM.render(
-  <App recipies={store.getState()} onArchive={()=>{}}/>, 
-  document.getElementById('root')
-);
+function render() {
+  ReactDOM.render(
+    <App 
+      recipies={getReadableRecipies(store.getState())} 
+      onArchive={id=> store.dispatch({ type: RECIPE_ARCHIVE, id })}
+    />, 
+    document.getElementById('root')
+  );	
+}
+
+//when state updated in store, 
+//subscribe will execute ==> 
+//render again
+store.subscribe(render);
+//render the component once when the application starts
+render();
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

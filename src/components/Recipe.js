@@ -14,7 +14,7 @@ const Recipe = ({ recipe, columns, onArchive, id }) => {
       <span style={{width: columns.archive.width}} >
         <Button
           className='button-inline'
-          onClick={()=>onArchive(id)}
+          onClick={() => onArchive(id)}
         >
           Archive
         </Button>
@@ -22,5 +22,7 @@ const Recipe = ({ recipe, columns, onArchive, id }) => {
     </div>
   )
 }
+
+
 
 export default Recipe;
