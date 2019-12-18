@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { doArchiveRecipe } from '../actions/archive';
 import './Recipe.css';
 import { Button } from './Button'
 
@@ -25,4 +27,13 @@ const Recipe = ({ recipe, columns, onArchive, id }) => {
 
 
 
-export default Recipe;
+
+
+const mapDispatchToProps = dispatch => ({
+  onArchive: id => dispatch(doArchiveRecipe(id)),
+})
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Recipe);

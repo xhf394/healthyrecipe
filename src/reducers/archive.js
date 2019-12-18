@@ -7,7 +7,7 @@ const INITIAL_STATE = [];
 const applyArchiveRecipe = (state, action) =>
   [...state, action.id];
 
-const archiveReducer = (state=[INITIAL_STATE], action) => {
+const archiveReducer = (state=INITIAL_STATE, action) => {
 	switch(action.type) {
 
 		//new state

@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { getReadableRecipies } from '../selectors/recipe';
+import { doArchiveRecipe } from '../actions/archive';
 import './Recipies.css';
 
 import Recipe from './Recipe';
@@ -26,7 +29,7 @@ const COLUMNS = {
 }
 
 
-const Recipies = ({ recipies, onArchive }) =>{
+const Recipies = ({ recipies }) =>{
   
   return (
     <div className='recipies'>
@@ -37,7 +40,6 @@ const Recipies = ({ recipies, onArchive }) =>{
           key={recipe.food.foodId}
           recipe={recipe}
           columns={COLUMNS}
-          onArchive={onArchive}
           id={recipe.food.foodId}
         />
       ))}
@@ -59,4 +61,12 @@ const RecipiesHeader = ({ columns}) =>
 
 
 
-export default Recipies;
+const mapStateToProps = state => ({
+  recipies: getReadableRecipies(state),
+});
+
+
+
+export default connect(
+  mapStateToProps
+)(Recipies);
