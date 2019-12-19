@@ -1,1 +1,5 @@
+/********ALL ACTION TYPES COME FROM HERE*********/
+
 export const RECIPE_ARCHIVE = 'RECIPE_ARCHIVE';
+export const RECIPIES_FETCH = 'RECIPIES_FETCH';
+export const RECIPIES_ADD = 'RECIPIES_ADD';

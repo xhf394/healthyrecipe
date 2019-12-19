@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getReadableRecipies } from '../selectors/recipe';
-import { doArchiveRecipe } from '../actions/archive';
 import './Recipies.css';
 
 import Recipe from './Recipe';
@@ -47,7 +46,7 @@ const Recipies = ({ recipies }) =>{
   )	
 }
 
-const RecipiesHeader = ({ columns}) => 
+const RecipiesHeader = ({ columns }) => 
   <div className='recipies-header'>
     {Object.keys(columns).map(key => (
       <span
@@ -59,13 +58,11 @@ const RecipiesHeader = ({ columns}) =>
     ))}
   </div>
 
-
+//mapStateToProps has subscribe function
 
 const mapStateToProps = state => ({
   recipies: getReadableRecipies(state),
 });
-
-
 
 export default connect(
   mapStateToProps
