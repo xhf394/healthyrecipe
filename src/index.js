@@ -4,9 +4,6 @@ import { Provider } from 'react-redux';
 import './index.css';
 import App from './components/App';
 import store from './store';
-import { getReadableRecipies } from './selectors/recipe';
-import { doArchiveRecipe } from './actions/archive';
-import { RECIPE_ARCHIVE } from './constants/actionTypes';
 import * as serviceWorker from './serviceWorker';
 
 const recipies = [
@@ -52,7 +49,7 @@ const recipies = [
       image: 'https://www.edamam.com/food-img/f1c/f1c7d3484954d91c3c84f56494d3c0ee.jpg',	
   	}	
   },
-]
+];
 
 // function render() {
 //   ReactDOM.render(

@@ -14,7 +14,8 @@ const SearchRecipies = ({ onFetchRecipies }) => {
   const onSubmit = event => {
     if(query) {
       //dispatch an action
-      onFetchRecipies(query);  
+      onFetchRecipies(query);
+        
       setQuery('');
     }
 
@@ -43,6 +44,9 @@ const SearchRecipies = ({ onFetchRecipies }) => {
 const mapDispatchToProps = dispatch => ({
   //doFetchRecipies will return an action
   onFetchRecipies: query => dispatch(doFetchRecipies(query)),
+  //could create several dispatch actions 
+  //onArhiveRecipe: id => dispatch(doArchiveRecipe(id)),
+  //onAddRecipe: recipies => dispatch(doAddRecipies(recipies)),
 });
 
 /*****connect React Component with Store*****/

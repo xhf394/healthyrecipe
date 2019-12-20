@@ -4,19 +4,35 @@
 //2. state transition
 //for recipies list.
 //*******************************************************//
-import { RECIPIES_ADD } from '../constants/actionTypes';
+import { 
+  RECIPIES_ADD,
+  RECIPIES_FETCH_ERROR
+} from '../constants/actionTypes';
 
+//initiate as an object with error key&value
+const INITIAL_STATE = { 
+  recipies: [],
+  error: null,
+};
 
-const INITIAL_STATE = [];
+const applyAddRecipies = (state, action) => ({
+  recipies: action.recipies,
+  error: null,	
+});
 
-const applyAddRecipies = (state, action) => 
-  action.recipies;
+const applyFetchErrorRecipies = (state, action) => ({
+  recipies: [],
+  error: action.error,	
+});
 
 function recipeReducer(state = INITIAL_STATE, action) {
     switch(action.type) {    
       //new state
       case RECIPIES_ADD: {
         return applyAddRecipies(state, action);
+      }
+      case RECIPIES_FETCH_ERROR: {
+      	return applyFetchErrorRecipies(state, action);
       }
       
       //default

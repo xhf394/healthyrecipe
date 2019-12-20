@@ -5,6 +5,7 @@ import { handleFetchRecipies } from './recipe';
 function *watchAll() {
   yield all([
     takeEvery(RECIPIES_FETCH, handleFetchRecipies),
+    
   ])	
 }
 

@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getReadableRecipies } from '../selectors/recipe';
+import {
+  getReadableRecipies,
+  getFetchError, 
+} from '../selectors/recipe';
 import './Recipies.css';
 
 import Recipe from './Recipe';
@@ -28,12 +31,12 @@ const COLUMNS = {
 }
 
 
-const Recipies = ({ recipies }) =>{
+const Recipies = ({ recipies, error }) =>{
   
   return (
     <div className='recipies'>
       <RecipiesHeader columns={COLUMNS} />
-      
+      { error && <p className='error'>Something went wrong ...</p>}
       {(recipies || []).map(recipe => (
         <Recipe 
           key={recipe.food.foodId}
@@ -62,6 +65,7 @@ const RecipiesHeader = ({ columns }) =>
 
 const mapStateToProps = state => ({
   recipies: getReadableRecipies(state),
+  error: getFetchError(state),
 });
 
 export default connect(

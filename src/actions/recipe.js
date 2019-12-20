@@ -1,6 +1,7 @@
 import { 
   RECIPIES_FETCH,
-  RECIPIES_ADD
+  RECIPIES_ADD,
+  RECIPIES_FETCH_ERROR,
 } from '../constants/actionTypes';
 
 
@@ -15,7 +16,13 @@ const doFetchRecipies = query => ({
   query,   
 });
 
+const  doFetchErrorRecipies = error => ({
+  type: RECIPIES_FETCH_ERROR,
+  error,	
+});
+
 export {
   doAddRecipies,
-  doFetchRecipies,	
+  doFetchRecipies,
+  doFetchErrorRecipies,	
 };
