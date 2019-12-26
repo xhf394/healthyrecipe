@@ -1,4 +1,5 @@
 import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import { createLogger } from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
 import rootReducer from '../reducers';
@@ -12,8 +13,10 @@ const saga = createSagaMiddleware();
 //store only take one reducer;
 const store = createStore(
   rootReducer,
-  undefined,                                                                                                                                                                                                                                                                                                                                                                              
-  applyMiddleware(saga, logger)
+  undefined, 
+  composeWithDevTools(                                                                                                                                                                                                                                                                                                                                                                             
+    applyMiddleware(saga, logger),
+  )  
 );
 
 saga.run(rootSaga);

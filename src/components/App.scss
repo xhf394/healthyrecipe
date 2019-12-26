@@ -1,0 +1,23 @@
+@import '../index.scss';
+
+.app {
+  background-color: $primary-color;
+
+  .interaction {
+  	background-color: $primary-background;
+  }	
+}
+
+
+@media (max-width: 770px) {
+  .large {
+  	display:none;
+  }	
+}
+
+
+@media (min-width: 771px) {
+  .small {
+  	display: none;
+  }
+}
