@@ -1,5 +1,8 @@
 import Button from './Button';
+import SearchButton from './SearchButton';
 
 
-
-export { Button };
+export { 
+  Button,
+  SearchButton,
+};

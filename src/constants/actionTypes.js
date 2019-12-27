@@ -14,3 +14,5 @@ export const MAIN_PAGE = 'MAIN_PAGE';
 export const SEARCH_PAGE = 'SEARCH_PAGE';
 export const CACULATION_PAGE = 'CACULATION_PAGE';
 export const EDIT_PAGE = 'EDIT_PAGE';
+export const QUERY_SET = 'QUERY_SET';
+export const QUERY_CHANGE = 'QUERY_CHANGE';

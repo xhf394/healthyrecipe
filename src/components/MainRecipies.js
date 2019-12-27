@@ -9,7 +9,7 @@ const MainRecipies = ({ isSearch }) => {
   return(
     <div> 
       {!isSearch && <Recipies />}
-      {isSearch && <SearchRecipies />}
+      {!isSearch && <SearchRecipies />}
     </div>
   )	
 };

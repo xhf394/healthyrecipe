@@ -1,22 +1,30 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { doFetchRecipies } from '../actions/recipe';
-import { Button } from './Button';
+import { doChangeQuery, doSetQuery } from '../actions/query';
+import { getQuery, getQueryKey } from '../selectors/query';
+import { Button, SearchButton } from './Button';
 
-const SearchRecipies = ({ onFetchRecipies }) => {
-  const [ query, setQuery ] = useState('');
+const SearchRecipies = ({ 
+  onFetchRecipies, 
+  query, 
+  onChangeQuery,
+  onSetQuery,
+  queryKey
+  }) => {
   
   //handle change
   const onChange = event => (
-    setQuery(event.target.value)
+    onChangeQuery(event.target.value)
   );
   //handle submission
   const onSubmit = event => {
     if(query) {
       //dispatch an action
+      //fetch data and add to new list
       onFetchRecipies(query);
-        
-      setQuery('');
+      //set query to ""; store query to queryKey
+      onSetQuery(query, queryKey);  
     }
 
     event.preventDefault();
@@ -24,18 +32,13 @@ const SearchRecipies = ({ onFetchRecipies }) => {
  
   return(
     <div>
-      <form onSubmit={onSubmit}>
-        <input 
-          onChange={onChange}
-          type='text'
-          value={query}         
-        />
-        <Button 
-          type='submit'
-        >
-          Search
-        </Button>
-      </form>
+      <SearchButton
+        onChange={onChange}
+        onClick={onSubmit}
+        query={query}
+      >
+        Search More
+      </SearchButton>
     </div>
   )	
 }
@@ -44,13 +47,18 @@ const SearchRecipies = ({ onFetchRecipies }) => {
 const mapDispatchToProps = dispatch => ({
   //doFetchRecipies will return an action
   onFetchRecipies: query => dispatch(doFetchRecipies(query)),
+  onChangeQuery: query => dispatch(doChangeQuery(query)),
+  onSetQuery: (query, queryKey) => dispatch(doSetQuery(query, queryKey)),  
   //could create several dispatch actions 
-  //onArhiveRecipe: id => dispatch(doArchiveRecipe(id)),
-  //onAddRecipe: recipies => dispatch(doAddRecipies(recipies)),
 });
+
+const mapStateToProps = state => ({
+  query: getQuery(state),
+  queryKey: getQueryKey(state),
+})  
 
 /*****connect React Component with Store*****/
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps,
 )(SearchRecipies);

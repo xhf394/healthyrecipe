@@ -5,7 +5,7 @@ import {
   getFetchError, 
 } from '../selectors/recipe';
 import './Recipies.css';
-
+import { SearchButton } from './Button';
 import Recipe from './Recipe';
 
 const COLUMNS = { 
@@ -32,11 +32,13 @@ const COLUMNS = {
 
 
 const Recipies = ({ recipies, error }) =>{
-  
+
   return (
     <div className='recipies'>
       <RecipiesHeader columns={COLUMNS} />
-      { error && <p className='error'>Something went wrong ...</p>}
+       
+          
+      { error && <p className='error'>Something went wrong ...</p>}      
       {(recipies || []).map(recipe => (
         <Recipe 
           key={recipe.food.foodId}

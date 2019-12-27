@@ -11,10 +11,11 @@ const doMainPageSwitch = (isMain, isSearch) => ({
   isSearch,	
 });
 
-const doSearchPageSwitch = (isMain, isSearch) => ({
+const doSearchPageSwitch = (isMain, isSearch, query) => ({
   type: SEARCH_PAGE,
   isMain,
-  isSearch,	
+  isSearch,
+  query,	
 });
 
 const doCaculationPageSwitch = (isMain, isEdit) => ({

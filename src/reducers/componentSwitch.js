@@ -8,7 +8,7 @@ import {
 const INITIAL_STATE = {
   isMain: true,
   isSearch: false,
-  isEdit: false,	
+  isEdit: false,
 }
 
 function componentSwitchReducer(state=INITIAL_STATE, action) {
@@ -17,7 +17,7 @@ function componentSwitchReducer(state=INITIAL_STATE, action) {
   	  return {...state, isMain: true, isSearch: false}; 
   	}
   	case SEARCH_PAGE: {
-      return {...state, isMain: true, isSearch: true};
+      return {...state, isMain: true, isSearch: true, query: action.query};
   	}
   	case CACULATION_PAGE: {
       return {...state, isMain: false, isEdit: false};
