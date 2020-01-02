@@ -35,9 +35,12 @@ const Recipies = ({ recipies, error }) =>{
 
   return (
     <div className='recipies'>
+      <SearchButton>
+        Search
+      </SearchButton>
+      
       <RecipiesHeader columns={COLUMNS} />
-       
-          
+                 
       { error && <p className='error'>Something went wrong ...</p>}      
       {(recipies || []).map(recipe => (
         <Recipe 
@@ -47,6 +50,7 @@ const Recipies = ({ recipies, error }) =>{
           id={recipe.food.foodId}
         />
       ))}
+      <h3>This is the main page</h3>
     </div>
   )	
 }

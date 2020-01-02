@@ -1,11 +1,27 @@
 @import '../index.scss';
 
+body, html{
+  margin: 0;
+  border: 0;
+}
+
 .app {
   background-color: $primary-color;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height:100vh;  
 
-  .interaction {
-  	background-color: $primary-background;
+  .small {
+    background-color: orange;
+    height: 100%;
   }	
+
+  .large {
+    background-color: green;
+    height: 100%;
+  }
+
 }
 
 
