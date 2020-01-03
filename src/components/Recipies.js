@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {
-  getReadableRecipies,
+  //getReadableRecipies,
   getFetchError, 
 } from '../selectors/recipe';
 import './Recipies.css';
-import { SearchButton } from './Button';
+import { SearchButton, ReviewButton } from './Button';
 import Recipe from './Recipe';
 
 const COLUMNS = { 
@@ -36,21 +36,16 @@ const Recipies = ({ recipies, error }) =>{
   return (
     <div className='recipies'>
       <SearchButton>
-        Search
+        Search More
       </SearchButton>
+      <ReviewButton>
+        Review
+      </ReviewButton>  
       
       <RecipiesHeader columns={COLUMNS} />
                  
-      { error && <p className='error'>Something went wrong ...</p>}      
-      {(recipies || []).map(recipe => (
-        <Recipe 
-          key={recipe.food.foodId}
-          recipe={recipe}
-          columns={COLUMNS}
-          id={recipe.food.foodId}
-        />
-      ))}
-      <h3>This is the main page</h3>
+
+      <h3>Can ignore ~ This is the main page ~</h3>
     </div>
   )	
 }
@@ -70,10 +65,22 @@ const RecipiesHeader = ({ columns }) =>
 //mapStateToProps has subscribe function
 
 const mapStateToProps = state => ({
-  recipies: getReadableRecipies(state),
+  //recipies: getReadableRecipies(state),
   error: getFetchError(state),
 });
 
 export default connect(
   mapStateToProps
 )(Recipies);
+
+/************
+      { error && <p className='error'>Something went wrong ...</p>}      
+      {(recipies || []).map(recipe => (
+        <Recipe 
+          key={recipe.food.foodId}
+          recipe={recipe}
+          columns={COLUMNS}
+          id={recipe.food.foodId}
+        />
+      ))}
+      ***************/

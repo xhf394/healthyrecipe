@@ -1,24 +1,36 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { doFetchRecipies } from '../actions/recipe';
-import { doChangeQuery, doSetQuery } from '../actions/query';
-import { getQuery, getQueryKey } from '../selectors/query';
-import { getSearch, getMain } from '../selectors/componentSwitch';
-import { doSearchPageSwitch } from '../actions/componentSwitch';
-import { Button, SearchButton, BackButton, ReviewButton } from './Button';
+import { SearchButton, BackButton, ReviewButton } from './Button';
+import { getReadableRecipe } from '../selectors/recipe';
+import RecipeTable from './RecipeTable';
 
-const SearchRecipies = () => {
+const SearchRecipies = ({recipe}) => {
   
 
   return(
     <div>
-      <SearchButton />
-      <BackButton />
-      <ReviewButton>
-        Review
-      </ReviewButton>
+      <div className='search-recipies'>
+        <SearchButton> Search </SearchButton>
+        <BackButton />
+        <ReviewButton> Review </ReviewButton>
+      </div>
+      
+      <div>
+      {recipe.map(item => (
+        <div> {item.label} </div>
+      ))}
+      
+      <RecipeTable /> 
+  
+      </div>
     </div>
   )	
 }
 
-export default SearchRecipies;
+const mapStateToProps = state => ({
+  recipe: getReadableRecipe(state),
+});
+
+export default connect(
+  mapStateToProps,
+)(SearchRecipies);

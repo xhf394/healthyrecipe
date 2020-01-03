@@ -6,3 +6,7 @@
   display: flex;
   justify-content: space-between;	
 }
+
+.search-recipies {
+  display: flex;	
+}

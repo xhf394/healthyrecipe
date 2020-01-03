@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { doFetchRecipies } from '../../actions/recipe';
+import { doFetchRecipe } from '../../actions/recipe';
 import { doChangeQuery, doSetQuery } from '../../actions/query';
 import { getQuery, getQueryKey } from '../../selectors/query';
 import { getSearch, getMain } from '../../selectors/componentSwitch';
@@ -8,7 +8,7 @@ import { doSearchPageSwitch } from '../../actions/componentSwitch';
 import Button from './Button';
 
 const SearchButton = ({ 
-  onFetchRecipies, 
+  onFetchRecipe, 
   query, 
   onChangeQuery,
   onSetQuery,
@@ -16,6 +16,7 @@ const SearchButton = ({
   isMain,
   isSearch,
   onSearchPageSwitch,
+  children
   }) => {
   
   //handle change
@@ -27,7 +28,7 @@ const SearchButton = ({
     if(query) {
       //dispatch an action
       //fetch data and add to new list
-      onFetchRecipies(query);
+      onFetchRecipe(query);
       //set query to ""; store query to queryKey
       onSetQuery(query, queryKey);  
     }
@@ -52,7 +53,7 @@ const SearchButton = ({
       <Button
         type='submit'
       >
-        Search More
+        {children}
       </Button>
     </form>
   ) 
@@ -61,7 +62,7 @@ const SearchButton = ({
 //mapDispatchToProps will return an plain object
 const mapDispatchToProps = dispatch => ({
   //doFetchRecipies will return an action
-  onFetchRecipies: query => dispatch(doFetchRecipies(query)),
+  onFetchRecipe: query => dispatch(doFetchRecipe(query)),
   onChangeQuery: query => dispatch(doChangeQuery(query)),
   onSetQuery: (query, queryKey) => dispatch(doSetQuery(query, queryKey)), 
   onSearchPageSwitch: (isMain, isSearch) => dispatch(doSearchPageSwitch(isMain, isSearch)), 

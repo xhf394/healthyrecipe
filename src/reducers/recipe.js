@@ -5,34 +5,34 @@
 //for recipies list.
 //*******************************************************//
 import { 
-  RECIPIES_ADD,
-  RECIPIES_FETCH_ERROR
+  RECIPE_ADD,
+  RECIPE_FETCH_ERROR
 } from '../constants/actionTypes';
 
 //initiate as an object with error key&value
 const INITIAL_STATE = { 
-  recipies: [],
+  recipe: [],
   error: null,
 };
 
-const applyAddRecipies = (state, action) => ({
-  recipies: action.recipies,
+const applyAddRecipe = (state, action) => ({
+  recipe: [action.recipe],
   error: null,	
 });
 
-const applyFetchErrorRecipies = (state, action) => ({
-  recipies: [],
+const applyFetchErrorRecipe = (state, action) => ({
+  recipe: [],
   error: action.error,	
 });
 
 function recipeReducer(state = INITIAL_STATE, action) {
     switch(action.type) {    
       //new state
-      case RECIPIES_ADD: {
-        return applyAddRecipies(state, action);
+      case RECIPE_ADD: {
+        return applyAddRecipe(state, action);
       }
-      case RECIPIES_FETCH_ERROR: {
-      	return applyFetchErrorRecipies(state, action);
+      case RECIPE_FETCH_ERROR: {
+      	return applyFetchErrorRecipe(state, action);
       }
       
       //default
