@@ -41,8 +41,6 @@ const Recipies = ({ recipies, error }) =>{
       <ReviewButton>
         Review
       </ReviewButton>  
-      
-      <RecipiesHeader columns={COLUMNS} />
                  
 
       <h3>Can ignore ~ This is the main page ~</h3>

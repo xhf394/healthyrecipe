@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { SearchButton, BackButton, ReviewButton } from './Button';
-import { getReadableRecipe } from '../selectors/recipe';
+import { getReadableRecipe, getFetchError } from '../selectors/recipe';
 import RecipeTable from './RecipeTable';
 
-const SearchRecipies = ({recipe}) => {
+const SearchRecipies = ({ recipe, error }) => {
   
-
   return(
     <div>
       <div className='search-recipies'>
@@ -15,13 +14,12 @@ const SearchRecipies = ({recipe}) => {
         <ReviewButton> Review </ReviewButton>
       </div>
       
-      <div>
-      {recipe.map(item => (
-        <div> {item.label} </div>
-      ))}
-      
-      <RecipeTable /> 
-  
+      <div>  
+        <RecipeTable 
+          recipies={recipe}
+          error={error}
+        >
+        </RecipeTable> 
       </div>
     </div>
   )	
@@ -29,6 +27,7 @@ const SearchRecipies = ({recipe}) => {
 
 const mapStateToProps = state => ({
   recipe: getReadableRecipe(state),
+  error: getFetchError(state),
 });
 
 export default connect(
