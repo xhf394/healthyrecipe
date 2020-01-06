@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{ useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
 import { doFetchRecipe } from '../../actions/recipe';
 import { doChangeQuery, doSetQuery } from '../../actions/query';
@@ -7,7 +7,7 @@ import { getSearch, getMain } from '../../selectors/componentSwitch';
 import { doSearchPageSwitch } from '../../actions/componentSwitch';
 import Button from './Button';
 
-const SearchButton = ({ 
+const SearchPageSearchButton = ({ 
   onFetchRecipe, 
   query, 
   onChangeQuery,
@@ -19,6 +19,11 @@ const SearchButton = ({
   children
   }) => {
   
+  //automatically focus on input after page switch
+  const inputEl =useRef(null);
+  useEffect(()=> {
+    inputEl.current.focus();
+  },[]);
   //handle change
   const onChange = event => (
     onChangeQuery(event.target.value)
@@ -36,9 +41,6 @@ const SearchButton = ({
     event.preventDefault();
   };
  
-  const onFocus = () => {
-    onSearchPageSwitch(isMain, isSearch);
-  }
 
   return(
     <form 
@@ -47,7 +49,7 @@ const SearchButton = ({
       <input
         onChange={onChange}
         value={query}
-        onFocus={onFocus}
+        ref={inputEl}
         type='text'
       />
       <Button
@@ -80,4 +82,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(SearchButton);
+)(SearchPageSearchButton);

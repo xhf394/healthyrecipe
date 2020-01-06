@@ -12,8 +12,12 @@ const getFetchError =({ recipeState }) =>
 const getReadableRecipe = ({ recipeState }) => 
   recipeState.recipe;
 
+const getMainRecipies = ({ mainRecipeState }) =>
+  mainRecipeState;    
+
 export {
   //getReadableRecipies,
   getFetchError,
-  getReadableRecipe,	
+  getReadableRecipe,
+  getMainRecipies,	
 }

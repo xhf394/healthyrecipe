@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {
-  //getReadableRecipies,
+  getMainRecipies,
   getFetchError, 
 } from '../selectors/recipe';
 import './Recipies.css';
-import { SearchButton, ReviewButton } from './Button';
-import Recipe from './Recipe';
+import { MainPageSearchButton, ReviewButton } from './Button';
+import SubRecipies from './SubRecipies';
 
 const COLUMNS = { 
   category: {
@@ -31,40 +31,35 @@ const COLUMNS = {
 }
 
 
-const Recipies = ({ recipies, error }) =>{
+const Recipies = ({ mainRecipies, error }) =>{
 
   return (
     <div className='recipies'>
-      <SearchButton>
+      <MainPageSearchButton>
         Search More
-      </SearchButton>
+      </MainPageSearchButton>
       <ReviewButton>
         Review
       </ReviewButton>  
                  
-
+      {Object.keys(mainRecipies).map(subRecipies => (
+        <SubRecipies
+          key={subRecipies}
+          title={subRecipies}
+          recipeList={mainRecipies[subRecipies]}
+        />
+      ))}
       <h3>Can ignore ~ This is the main page ~</h3>
     </div>
   )	
 }
-
-const RecipiesHeader = ({ columns }) => 
-  <div className='recipies-header'>
-    {Object.keys(columns).map(key => (
-      <span
-        key={key}
-        style={{width: columns[key].width}}
-      > 
-       {columns[key].label}
-      </span>
-    ))}
-  </div>
 
 //mapStateToProps has subscribe function
 
 const mapStateToProps = state => ({
   //recipies: getReadableRecipies(state),
   error: getFetchError(state),
+  mainRecipies: getMainRecipies(state),
 });
 
 export default connect(
