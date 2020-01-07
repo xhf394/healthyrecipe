@@ -1,5 +1,6 @@
 import React from 'react';
 import Recipe from './Recipe';
+import TableHeader from './TableHeader';
 
 /*******Table Header******/
 
@@ -31,22 +32,6 @@ const COLUMNS = {
 };
 
 
-const RecipeTableHeader = () => {
-  return(
-    <div>
-      <div className='recipies-header'>
-        {Object.keys(COLUMNS).map(column => (
-          <span 
-            key={column}
-            style={{width: COLUMNS[column].width}}
-          >
-            {COLUMNS[column].label}
-          </span>
-        ))}
-      </div>
-    </div>
-  )	
-};
 
 //recipe list will be passed in from parent
 //this will be a reusable component
@@ -56,7 +41,9 @@ const RecipeTable = (props) => {
   
   return(
     <div>
-      <RecipeTableHeader />
+      <TableHeader 
+        COLUMNS={COLUMNS}
+      />
       {error && <p> Something Went Wrong ... </p>}
       {(recipies||[]).map(recipe => (
         <Recipe 

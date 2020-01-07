@@ -16,3 +16,8 @@ export const CACULATION_PAGE = 'CACULATION_PAGE';
 export const EDIT_PAGE = 'EDIT_PAGE';
 export const QUERY_SET = 'QUERY_SET';
 export const QUERY_CHANGE = 'QUERY_CHANGE';
+
+/**************Deal with Calculation******************/
+
+export const ADD_TO_TOTAL = 'ADD_TO_TOTAL';
+export const DELETE_FROM_TOTAL = 'DELETE_FROM_TOTAL';

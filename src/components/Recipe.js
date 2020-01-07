@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { doArchiveRecipe } from '../actions/archive';
 import './Recipe.css';
-import { Button } from './Button'
+import { AddButton } from './Button';
 
 
 const Recipe = ({ recipe, columns, onArchive }) => {
@@ -19,12 +19,13 @@ const Recipe = ({ recipe, columns, onArchive }) => {
       <span style={{width: columns.energy.width}}> {recipe.nutrients.ENERC_KCAL}</span>
       <span style={{width: columns.nutrients.width}}> {`Fat: ${recipe.nutrients.FAT}`}</span>
       <span style={{width: columns.addToRecipe.width}} >
-        <Button
+        <AddButton
           className='button-inline'
-          onClick={addToRecipe}
+          recipe={recipe}
+          calories={recipe.nutrients.ENERC_KCAL}
         >
           Add
-        </Button>
+        </AddButton>
       </span>     
     </div>
   )

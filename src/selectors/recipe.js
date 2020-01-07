@@ -20,4 +20,4 @@ export {
   getFetchError,
   getReadableRecipe,
   getMainRecipies,	
-}
+};

@@ -5,6 +5,7 @@ import EditButton from './EditButton';
 import ReviewButton from './ReviewButton';
 import SearchPageSearchButton from './SearchPageSearchButton';
 import MainPageSearchButton from './MainPageSearchButton';
+import AddButton from './AddButton';
 
 export { 
   Button,
@@ -14,4 +15,5 @@ export {
   ReviewButton,
   MainPageSearchButton,
   SearchPageSearchButton,
+  AddButton,
 };
