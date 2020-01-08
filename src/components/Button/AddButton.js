@@ -1,15 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Button from './Button';
+import { doAddToTotal } from '../../actions/total';
 
-const AddButton = ({ recipe, calories }) => {
-
+const AddButton = ({ recipe, calories, onAddToTotal }) => {
+  
   return(
-    <Button>
+    <Button
+      onClick={() => onAddToTotal(recipe, calories)}
+    >
       Add
     </Button>
   )	
 };
 
-export default AddButton;
+const mapDispatchToProps = dispatch => ({
+  onAddToTotal: (recipe, calories) => dispatch(doAddToTotal(recipe, calories)),	
+})
+export default connect(
+  null,
+  mapDispatchToProps,
+)(AddButton);
 
