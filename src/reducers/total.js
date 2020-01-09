@@ -1,6 +1,6 @@
 import {
-  ADD_TO_TOTAL,
-  DELETE_FROM_TOTAL,	
+  INCREMENT_TOTAL,
+  DECREMENT_TOTAL,	
 } from '../constants/actionTypes';
 
 const INITIAL_STATE = {
@@ -9,7 +9,7 @@ const INITIAL_STATE = {
   quantityListById: {}, //{ id: quantity }
 };
 
-const applyAddToTotal = (state, action) => {
+const applyIncrementTotal = (state, action) => {
   const { totalValue, calculationList, quantityListById } = state;
   const { recipe, calories } = action;
   
@@ -39,24 +39,28 @@ const applyAddToTotal = (state, action) => {
   }
 };
 
-const applyDeleteFromTotal = (state, action) => {
+const applyDecrementTotal = (state, action) => {
   const { totalValue, calculationList, quantityListById } = state;
   const { recipe, calories } = action;
   
   //if quantity already reduced to 1, cannot decrement more
-  const isAbleToDecrement = ( recipe, quantityListById ) => 
-    quantityListById[recipe.foodId] > 1;
+  const isAbleToDecrement = ( recipe, quantityListById ) =>   
+    quantityListById && quantityListById[recipe.foodId] && quantityListById[recipe.foodId] === 1;
 
   //deal with total value;
-  const updatedTotal =  isAbleToDecrement ? totalValue - calories : totalValue;
+  const updatedTotal =  isAbleToDecrement(recipe, quantityListById) 
+                     ? totalValue 
+                     : totalValue - calories;
 
   //calculationList will remain unchanged, and will only be updated with delete
 
   //the counter will be decrement to at least 1 in the list
-  const updatedQuantityList = {
-    ...quantityListById,
-    [recipe.foodId]: isAbleToDecrement ? quantityListById[recipe.foodId] - 1 : 1,
-  }
+  const updatedQuantityList = isAbleToDecrement(recipe, quantityListById)
+                            ? { ...quantityListById }
+                            : {
+                                ...quantityListById,
+                                [recipe.foodId]: quantityListById[recipe.foodId] - 1,
+                              };
 
   return {
   	totalValue: updatedTotal,
@@ -68,11 +72,11 @@ const applyDeleteFromTotal = (state, action) => {
 
 const totalReducer = (state=INITIAL_STATE, action) => {
   switch(action.type) {
-  	case ADD_TO_TOTAL: {
-      return applyAddToTotal(state, action);
+  	case INCREMENT_TOTAL: {
+      return applyIncrementTotal(state, action);
   	}
-  	case DELETE_FROM_TOTAL: {
-      return applyDeleteFromTotal(state, action);
+  	case DECREMENT_TOTAL: {
+      return applyDecrementTotal(state, action);
   	}
   	default: return state;
   }	

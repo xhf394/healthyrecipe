@@ -1,22 +1,22 @@
 import {
-  ADD_TO_TOTAL,
-  DELETE_FROM_TOTAL,	
+  INCREMENT_TOTAL,
+  DECREMENT_TOTAL,	
 } from '../constants/actionTypes';
 
-const doAddToTotal = (recipe, calories) => ({
-  type: ADD_TO_TOTAL,
+const doIncrementTotal = (recipe, calories) => ({
+  type: INCREMENT_TOTAL,
   recipe,
   calories,
 });
 
-const doDeleteFromTotal = (recipe, calories) => ({
-  type: DELETE_FROM_TOTAL,
+const doDecrementTotal = (recipe, calories) => ({
+  type: DECREMENT_TOTAL,
   recipe,
   calories,	
 });
 
 export {
-	doAddToTotal,
-    doDeleteFromTotal,
+	doIncrementTotal,
+  doDecrementTotal,
 };
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { doArchiveRecipe } from '../actions/archive';
 import './Recipe.css';
-import { AddButton } from './Button';
+import { AddButton, DecrementButton } from './Button';
 
 
 const Recipe = ({ recipe, columns, onArchive }) => {
@@ -26,6 +26,12 @@ const Recipe = ({ recipe, columns, onArchive }) => {
         >
           Add
         </AddButton>
+        <DecrementButton
+          recipe={recipe}
+          calories={recipe.nutrients.ENERC_KCAL}
+        >
+          Decrement
+        </DecrementButton>
       </span>     
     </div>
   )

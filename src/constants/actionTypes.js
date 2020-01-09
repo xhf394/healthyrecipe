@@ -19,5 +19,5 @@ export const QUERY_CHANGE = 'QUERY_CHANGE';
 
 /**************Deal with Calculation******************/
 
-export const ADD_TO_TOTAL = 'ADD_TO_TOTAL';
-export const DELETE_FROM_TOTAL = 'DELETE_FROM_TOTAL';
+export const INCREMENT_TOTAL = 'INCREMENT_TOTAL';
+export const DECREMENT_TOTAL = 'DECREMENT_TOTAL';
