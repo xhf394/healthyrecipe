@@ -1,14 +1,14 @@
 import React from 'react';
 import { ReviewButton } from './Button';
+import CalculationTable from './CalculationTable';
 
 const EditPage = () => {
 
   return(
     <div> 
-      EditPage
-      <ReviewButton>
-        Done
-      </ReviewButton>
+      <h2>EditPage</h2>
+      <ReviewButton> Done </ReviewButton>
+
     </div>
   )	
 };

@@ -3,9 +3,16 @@ const getTotalValue = ({ totalState }) =>
 
 const getCalculationList = ({ totalState }) =>
   totalState.calculationList;
+  
+const getRecipeList = ({ totalState }) =>
+  totalState.recipeList;
 
+const getQuantityListById = ({ totalState }) =>
+  totalState.quantityListById;  
 
 export {
   getTotalValue,
-  getCalculationList,	
+  getCalculationList,
+  getRecipeList,
+  getQuantityListById,	
 };  

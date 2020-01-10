@@ -4,9 +4,6 @@ import Button from './Button';
 import { doDecrementTotal } from '../../actions/total';
 
 const DecrementButton = ({recipe, calories, onDecrementTotal}) => {
-  
-
-  
   return(
     <Button
       onClick={()=> onDecrementTotal(recipe, calories)}

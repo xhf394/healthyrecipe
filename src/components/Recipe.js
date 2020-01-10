@@ -2,14 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { doArchiveRecipe } from '../actions/archive';
 import './Recipe.css';
-import { AddButton, DecrementButton } from './Button';
+import { AddButton, DecrementButton, DeleteButton } from './Button';
 
 
 const Recipe = ({ recipe, columns, onArchive }) => {
-  
-  const addToRecipe = () => {
-
-  }
 
   return (
     <div className='recipies-header'>
@@ -26,12 +22,6 @@ const Recipe = ({ recipe, columns, onArchive }) => {
         >
           Add
         </AddButton>
-        <DecrementButton
-          recipe={recipe}
-          calories={recipe.nutrients.ENERC_KCAL}
-        >
-          Decrement
-        </DecrementButton>
       </span>     
     </div>
   )
