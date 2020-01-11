@@ -24,10 +24,7 @@ const App = ({ isMain }) => (
       {isMain&&<MainRecipies />}
       {!isMain&&<Total />}
     </div>
-    <div className="large">
-      <MainRecipies />
-      <Total />
-    </div>
+
 
   </div>	
 )

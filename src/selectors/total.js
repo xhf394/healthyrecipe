@@ -14,5 +14,5 @@ export {
   getTotalValue,
   getCalculationList,
   getRecipeList,
-  getQuantityListById,	
+  getQuantityListById,
 };  

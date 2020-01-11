@@ -4,6 +4,9 @@ const getQuery = ({queryState}) =>
 const getQueryKey = ({queryState}) => 
   queryState.queryKey;
 
-export { getQuery, getQueryKey };
+const getQueryList = ({queryState}) =>
+  queryState.queryList  
+
+export { getQuery, getQueryKey, getQueryList };
 
 

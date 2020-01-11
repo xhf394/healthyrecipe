@@ -22,6 +22,8 @@ const Recipe = ({ recipe, columns, onArchive }) => {
         >
           Add
         </AddButton>
+        <DecrementButton recipe={recipe} calories={recipe.nutrients.ENERC_KCAL}> Decrement</DecrementButton>
+        <DeleteButton recipe={recipe} calories={recipe.nutrients.ENERC_KCAL}> Delete </DeleteButton>
       </span>     
     </div>
   )

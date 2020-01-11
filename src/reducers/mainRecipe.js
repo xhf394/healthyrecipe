@@ -1,5 +1,6 @@
 const INITIAL_STATE = {
-  Vegetable: [
+  mainRecipies: {
+    Vegetable: [
     {
     foodId: 'food_ai215e5b85pdh5ajd4aafa3w2zm8',
     label: 'Carrots',
@@ -40,7 +41,7 @@ const INITIAL_STATE = {
     categoryLabel: 'food'
   },
   {
-  	foodId: 'food_avmg2xfbv1p91yavoxjg7bddvfaz',
+    foodId: 'food_avmg2xfbv1p91yavoxjg7bddvfaz',
     label: 'Kale',
     nutrients: {
       ENERC_KCAL: 49,
@@ -53,7 +54,7 @@ const INITIAL_STATE = {
     categoryLabel: 'food'
   },
   {
-  	foodId: 'food_buj0e74bxco8n0betbsnzayddt6a',
+    foodId: 'food_buj0e74bxco8n0betbsnzayddt6a',
     label: 'Turnips',
     nutrients: {
       ENERC_KCAL: 28,
@@ -586,6 +587,8 @@ const INITIAL_STATE = {
   ],
   Others: [
   ],
+  },
+  suggestedList: ['startfruit', 'peanut', 'litchi', 'longan'],
 }
 
 const mainRecipeReducer = (state=INITIAL_STATE, action) => {

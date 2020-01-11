@@ -12,7 +12,6 @@ const SearchPageSearchButton = ({
   query, 
   onChangeQuery,
   onSetQuery,
-  queryKey,
   isMain,
   isSearch,
   onSearchPageSwitch,
@@ -35,7 +34,7 @@ const SearchPageSearchButton = ({
       //fetch data and add to new list
       onFetchRecipe(query);
       //set query to ""; store query to queryKey
-      onSetQuery(query, queryKey);  
+      onSetQuery(query);  
     }
 
     event.preventDefault();
@@ -66,14 +65,13 @@ const mapDispatchToProps = dispatch => ({
   //doFetchRecipies will return an action
   onFetchRecipe: query => dispatch(doFetchRecipe(query)),
   onChangeQuery: query => dispatch(doChangeQuery(query)),
-  onSetQuery: (query, queryKey) => dispatch(doSetQuery(query, queryKey)), 
+  onSetQuery: query => dispatch(doSetQuery(query)), 
   onSearchPageSwitch: (isMain, isSearch) => dispatch(doSearchPageSwitch(isMain, isSearch)), 
   //could create several dispatch actions 
 });
 
 const mapStateToProps = state => ({
   query: getQuery(state),
-  queryKey: getQueryKey(state),
   isSearch: getSearch(state),
   isMain: getMain(state),
 })  

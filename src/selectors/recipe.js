@@ -13,11 +13,15 @@ const getReadableRecipe = ({ recipeState }) =>
   recipeState.recipe;
 
 const getMainRecipies = ({ mainRecipeState }) =>
-  mainRecipeState;    
+  mainRecipeState.mainRecipies;    
+
+const getSuggestedList = ({ mainRecipeState }) => 
+  mainRecipeState.suggestedList;
 
 export {
   //getReadableRecipies,
   getFetchError,
   getReadableRecipe,
-  getMainRecipies,	
+  getMainRecipies,
+  getSuggestedList,	
 };

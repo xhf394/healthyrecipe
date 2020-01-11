@@ -30,14 +30,12 @@ const applyIncrementTotal = ( state, action ) => {
                           : recipeList;                             
 
   //update quantity list and update quantity;
-   const updatedQuantityList = {
-     ...quantityListById,
-     [recipe.foodId]: (quantityListById[recipe.foodId] || 0) + 1	  
-   }       
-  //decide if the calculation list is empty
+  const updatedQuantityList = {
+    ...quantityListById,
+    [recipe.foodId]: (quantityListById[recipe.foodId] || 0) + 1	  
+  }; 
 
-  //1st: add new label food, and set counter as 1;
-  //2nd: keep the old list, and only update label food counter ++;
+  
   return {
   	totalValue: updatedTotal,
   	calculationList: updatedCalculationList,
@@ -86,7 +84,7 @@ const applyDeleteFromTotal = ( state, action ) => {
     calculationList.indexOf(recipe.foodId) !== -1;
 
   const updatedTotal = isAbleToDelete(calculationList, recipe) 
-                     ? (totalValue - deleteValue) || 0
+                     ? (totalValue - deleteValue) 
                      : totalValue;
 
   const updatedCalculationList = calculationList.filter(item => item !== recipe.foodId);

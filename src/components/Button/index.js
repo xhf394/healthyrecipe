@@ -8,6 +8,7 @@ import MainPageSearchButton from './MainPageSearchButton';
 import AddButton from './AddButton';
 import DecrementButton from './DecrementButton';
 import DeleteButton from './DeleteButton';
+import SearchButton from './SearchButton';
 
 export { 
   Button,
@@ -20,4 +21,5 @@ export {
   AddButton,
   DecrementButton,
   DeleteButton,
+  SearchButton,
 };
