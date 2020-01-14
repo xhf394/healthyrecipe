@@ -19,13 +19,9 @@ import { getMain } from '../selectors/componentSwitch';
 
 
 const App = ({ isMain }) => (	
-  <div className='app'>
-    <div className="small">
+  <div className='container app'>
       {isMain&&<MainRecipies />}
       {!isMain&&<Total />}
-    </div>
-
-
   </div>	
 )
 

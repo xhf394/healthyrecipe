@@ -43,6 +43,7 @@ const MainPageSearchButton = ({
   return(
     <form 
       onSubmit={onSubmit}
+      className='row-reverse'
     >
       <input
         onChange={onChange}
@@ -52,6 +53,7 @@ const MainPageSearchButton = ({
       />
       <Button
         type='submit'
+        className='button-primary'
       >
         {children}
       </Button>

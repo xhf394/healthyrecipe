@@ -4,11 +4,7 @@ button {
   border: 1px solid #dddddd;
   background: transparent;
   color: #808080;
-  cursor: pointer;	
-}
-
-button:hover {
-  color: #222;
+  cursor: pointer;  
 }
 
 /*.button-inline {

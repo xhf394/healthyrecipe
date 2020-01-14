@@ -1,43 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import React from 'react';
 import Button from './Button';
 import { connect } from 'react-redux';
@@ -66,10 +26,6 @@ const SearchButton = ({ onFetchRecipe, onSetQuery, query, children }) => {
     </Button>
   )	
 }
-  
-
-
-
 
 const mapDispatchToProps = dispatch => ({
   onFetchRecipe: query => dispatch(doFetchRecipe(query)),

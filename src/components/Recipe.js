@@ -8,7 +8,7 @@ import { AddButton, DecrementButton, DeleteButton } from './Button';
 const Recipe = ({ recipe, columns, onArchive }) => {
 
   return (
-    <div className='recipies-header'>
+    <div className='row-reverse'>
       <span style={{width: columns.label.width}}> {recipe.label}</span>	
       <span style={{width: columns.qty.width}}> 100</span>
       <span style={{width: columns.unit.width}}> g</span>
@@ -22,8 +22,6 @@ const Recipe = ({ recipe, columns, onArchive }) => {
         >
           Add
         </AddButton>
-        <DecrementButton recipe={recipe} calories={recipe.nutrients.ENERC_KCAL}> Decrement</DecrementButton>
-        <DeleteButton recipe={recipe} calories={recipe.nutrients.ENERC_KCAL}> Delete </DeleteButton>
       </span>     
     </div>
   )

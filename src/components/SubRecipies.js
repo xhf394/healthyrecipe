@@ -6,8 +6,8 @@ const SubRecipies = ({ recipeList, title }) => {
   
 
   return(
-     <div>
-  	   <h2> { title } </h2>
+     <div className='subrecipies'>
+  	   <h3> { title } </h3>
        <RecipeTable
          recipies={recipeList}
        />

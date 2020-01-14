@@ -34,14 +34,23 @@ const COLUMNS = {
 const Recipies = ({ mainRecipies, error }) =>{
 
   return (
-    <div className='recipies'>
-      <MainPageSearchButton>
-        Search More
-      </MainPageSearchButton>
-      <ReviewButton>
-        Review
-      </ReviewButton>  
-                 
+    <div className='main-recipies row'>     
+      
+      <div className='main-recipies-head sect-nmll5 sect-nmr15'>
+        <div className='main-recipies-title'>
+          <h3>Choose Your Food !</h3>
+        </div>
+      
+        <div className='main-recipies-searchbar'>
+          <MainPageSearchButton>
+            Search
+          </MainPageSearchButton>
+          <ReviewButton>
+            Review
+          </ReviewButton>
+        </div>
+      </div>
+
       {Object.keys(mainRecipies).map(subRecipies => (
         <SubRecipies
           key={subRecipies}

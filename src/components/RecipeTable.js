@@ -15,18 +15,18 @@ const COLUMNS = {
   },
   unit: {
   	label: 'Unit',
-  	width: '5%',
+  	width: '10%',
   },
   energy: {
   	label: 'Energy',
-  	width: '10%',
+  	width: '15%',
   },
   nutrients: {
   	label: 'Nutrients',
-  	width: '30%',
+  	width: '25%',
   },
   addToRecipe: {
-  	label: 'Add to Recipe',
+  	label: 'Add',
   	width: '15%',
   }
 };
@@ -40,11 +40,12 @@ const RecipeTable = (props) => {
   console.log(recipies);
   
   return(
-    <div>
+    <div className='table-body'>
       <TableHeader 
         COLUMNS={COLUMNS}
       />
       {error && <p> Something Went Wrong ... </p>}
+      <div className='table-content'>
       {(recipies||[]).map(recipe => (
         <Recipe 
           key={recipe.foodId}
@@ -52,6 +53,7 @@ const RecipeTable = (props) => {
           recipe={recipe}
         />
       ))}
+     </div> 
     </div>
   )	
 };

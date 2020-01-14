@@ -8,11 +8,8 @@ import './MainRecipies.scss';
 const MainRecipies = ({ isSearch }) => {
   console.log(isSearch);
   return(
-    <div className='mainRecipies'>
-      <div className='mainRecipies-title'>
-        <h2>This is Title</h2>
-      </div>
-      <div className='mainRecipies-content'>
+    <div>
+      <div>
         {!isSearch && <Recipies />}
         {isSearch && <SearchRecipies />}
       </div>  
