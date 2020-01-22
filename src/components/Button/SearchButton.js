@@ -21,6 +21,7 @@ const SearchButton = ({ onFetchRecipe, onSetQuery, query, children }) => {
   return(
     <Button
       onClick={onClick}
+      className='button-suggest-item'
     >
       {children}
     </Button>

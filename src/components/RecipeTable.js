@@ -7,7 +7,7 @@ import TableHeader from './TableHeader';
 const COLUMNS = {
   label: {
     label: 'Label',
-    width: '20%',
+    width: '25%',
   },
   qty: {
   	label: 'Qty',

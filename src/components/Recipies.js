@@ -45,9 +45,7 @@ const Recipies = ({ mainRecipies, error }) =>{
           <MainPageSearchButton>
             Search
           </MainPageSearchButton>
-          <ReviewButton>
-            Review
-          </ReviewButton>
+
         </div>
       </div>
 
@@ -58,7 +56,6 @@ const Recipies = ({ mainRecipies, error }) =>{
           recipeList={mainRecipies[subRecipies]}
         />
       ))}
-      <h3>Can ignore ~ This is the main page ~</h3>
     </div>
   )	
 }

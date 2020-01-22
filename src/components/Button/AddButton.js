@@ -3,13 +3,14 @@ import { connect } from 'react-redux';
 import Button from './Button';
 import { doIncrementTotal } from '../../actions/total';
 
-const AddButton = ({ recipe, calories, onIncrementTotal }) => {
+const AddButton = ({ recipe, calories, onIncrementTotal, className='' }) => {
   
   return(
     <Button
       onClick={() => onIncrementTotal(recipe, calories)}
+      className={className}
     >
-      Add
+      +
     </Button>
   )	
 };

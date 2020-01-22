@@ -4,7 +4,7 @@ import React from 'react';
 const TableHeader = ({ COLUMNS }) => {
   return(
     <div>
-      <div className='table-header row-reverse '>
+      <div className='table-header row-reverse justify-content-bwt '>
         {Object.keys(COLUMNS).map(column => (
           <span 
             key={column}

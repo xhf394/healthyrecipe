@@ -12,6 +12,7 @@ const ReviewButton = ({
   isEdit,
   onCaculationPage,	
   children,
+  className=''
 }) => {
   
   const onClick = () => {
@@ -21,6 +22,7 @@ const ReviewButton = ({
   return(
     <Button 
       onClick={onClick}
+      className={className}
     >
       {children}
     </Button>

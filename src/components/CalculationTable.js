@@ -8,22 +8,22 @@ import CalculationRecipe from './CalculationRecipe';
 const COLUMNS = {
   label: {
     label: 'Label',
-    width: '20%',
+    width: '25%',
   },
   qty: {
   	label: 'Qty',
-  	width: '10%',
+  	width: '15%',
   },
   unit: {
   	label: 'Unit',
-  	width: '5%',
+  	width: '15%',
   },
   energy: {
   	label: 'Energy',
-  	width: '10%',
+  	width: '15%',
   },
   calculation: {
-  	width: '40%',
+  	width: '30%',
   }
 };
 
@@ -33,21 +33,27 @@ const COLUMNS = {
 const CalculationTable = ({isEdit, recipeList, quantityListById}) => {
 	  
   return(
-    <div>
+    <div className='calculation-table sect-nmr15 sect-nmll5'>
+
+        <div className='table-body'>
       <TableHeader 
         COLUMNS={COLUMNS}
       />
-      {(recipeList || []).map(recipe => (
-        <CalculationRecipe
-          key={recipe.foodId}
-          isEdit={isEdit}
-          recipe={recipe}
-          columns={COLUMNS}
-          quantity={quantityListById[recipe.foodId]}
-        />
-
-      ))}      
+      
+      <div className='table-content'>
+        {(recipeList || []).map(recipe => (
+          <CalculationRecipe
+            key={recipe.foodId}
+            isEdit={isEdit}
+            recipe={recipe}
+            columns={COLUMNS}
+            quantity={quantityListById[recipe.foodId]}
+          />
+        ))}
+      </div>      
     </div>
+    </div>
+
   )	
 };
 

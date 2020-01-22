@@ -6,9 +6,7 @@ const EditPage = () => {
 
   return(
     <div> 
-      <h2>EditPage</h2>
       <ReviewButton> Done </ReviewButton>
-
     </div>
   )	
 };

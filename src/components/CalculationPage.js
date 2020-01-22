@@ -5,8 +5,7 @@ const CalculationPage = () => {
 
   return(
     <div> 
-      CalculationPage
-      <h2>Total Energy</h2>     
+    
       <BackButton />
       <EditButton />
     </div>

@@ -13,10 +13,20 @@ const applyQuerySet = ( state, action ) => {
 
   queryList.unshift(action.query);
   
+  const unique = (array) => {
+    var res = array.filter((item, index, array) =>{
+      return array.indexOf(item) === index;
+    });
+    return res;
+  }
+
+  const updatedQueryList = unique(queryList);
+
+  
   return {
     query: '', 
-    queryKey: updatedQuery,
-    queryList, 
+    queryKey: query,
+    queryList: updatedQueryList, 
   }
 };
 

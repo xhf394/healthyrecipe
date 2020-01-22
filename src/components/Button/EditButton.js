@@ -8,6 +8,7 @@ const EditButton = ({
   isMain,
   isEdit,
   onEditPage,
+  className=''
 }) => {
   
   const onClick = () => {
@@ -17,6 +18,7 @@ const EditButton = ({
   return(
     <Button
       onClick={onClick}
+      className={className}
     >
       Edit
     </Button>

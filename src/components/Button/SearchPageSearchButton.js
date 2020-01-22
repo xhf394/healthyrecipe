@@ -44,6 +44,7 @@ const SearchPageSearchButton = ({
   return(
     <form 
       onSubmit={onSubmit}
+      className='search-Ipt row-reverse'
     >
       <input
         onChange={onChange}
@@ -53,6 +54,7 @@ const SearchPageSearchButton = ({
       />
       <Button
         type='submit'
+        className='button-nb'
       >
         {children}
       </Button>

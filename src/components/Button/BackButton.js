@@ -10,6 +10,7 @@ const BackButton = ({
   isMain, 
   isSearch,
   onMainPageSwitch,
+  className=''
 }) => {
   
   const onClick = () => {
@@ -19,6 +20,7 @@ const BackButton = ({
   return(
     <Button
       onClick={onClick}
+      className={className}
     >
       Back
     </Button>
